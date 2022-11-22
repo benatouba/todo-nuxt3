@@ -5,18 +5,29 @@
     </section>
     <section class="w-8/12 md:mx-auto lg:w-6/12 py-4 rounded-lg">
       <!-- <form @submit.prevent> -->
-      <todo-input v-model="newTodo" @save="saveNewTodo" :eroor="error" />
-    <!-- <todo-list /> -->
+      <todo-input v-model="newTodo" @save="saveNewTodo" :error="error" />
+      <todo-list :items="todoStore.getSortedTodos.reverse()" />
       <!-- </form> -->
     </section>
   </main>
 </template>
 
 <script lang="ts" setup>
-import { useTodoStore } from './store/todo';
+import { useTodoStore } from '@/store/todo';
 const todoStore = useTodoStore();
-const newTodo = useState('newTodo', () => {});
+const newTodo = useState('newTodo', () => {
+  return '';
+});
 const error = ref(false);
+
+watch(error, (value: boolean) => {
+  if (value) {
+    setTimeout(() => {
+      error.value = false;
+    }, 3000);
+  }
+});
+
 const saveNewTodo = () => {
   if (newTodo.value.length <= 0) {
     error.value = true;
@@ -24,9 +35,11 @@ const saveNewTodo = () => {
   }
 
   todoStore.add({
-    label: newTodo.value,
+    label: newTodo.value
   });
 
-  newTodo.value = "";
+  newTodo.value = '';
+
+  console.log(todoStore.items);
 };
 </script>

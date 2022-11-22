@@ -4,20 +4,32 @@
     "build": "nuxt build",
     "test": "vitest run --coverage",
     "dev": "nuxt dev",
+    "lint": "eslint --ext .ts,.js,.vue .",
+    "format": "prettier --config .prettierrc.json './**/*.ts' './**/*.vue' --write",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^12.0.0",
     "@nuxtjs/tailwindcss": "^6.1.3",
     "@pinia/nuxt": "^0.4.4",
     "@vitest/coverage-c8": "^0.25.2",
+    "@volar-plugins/prettier": "^1.1.5",
+    "@volar-plugins/prettyhtml": "^1.0.3",
     "c8": "^7.12.0",
+    "eslint": "^8.28.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-vue": "^9.7.0",
     "nuxt": "latest",
+    "prettier": "^2.7.1",
     "uuid": "^9.0.0",
     "vitest": "^0.25.2"
   },
   "dependencies": {
+    "@heroicons/vue": "^2.0.13",
     "@types/uuid": "^8.3.4",
     "pinia": "^2.0.24"
   }
