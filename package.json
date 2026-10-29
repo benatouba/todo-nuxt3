@@ -26,7 +26,7 @@
     "nuxt": "latest",
     "prettier": "^2.7.1",
     "uuid": "^9.0.0",
-    "vitest": "^0.25.2"
+    "vitest": "^5.0.5"
   },
   "dependencies": {
     "@heroicons/vue": "^2.0.13",
